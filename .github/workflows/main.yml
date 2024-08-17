@@ -1,0 +1,18 @@
+name: Test
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.1.0
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
+        with:
+          format: space-delimited
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Printing
+        run: |
+          echo "Modified:"
+          echo "${{ steps.abc.outputs.modified }}"
