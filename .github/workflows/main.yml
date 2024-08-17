@@ -28,6 +28,6 @@ jobs:
     needs: [test]
     steps:
       - name: test
-        if: ${{ needs.test.outputs.output1 == found }}
+        if: ${{ needs.test.outputs.output1 == "found" }}
         run: |
           echo running
