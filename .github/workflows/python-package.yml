@@ -47,7 +47,7 @@ jobs:
     - name: Push master to prod
       run: |
         git fetch --unshallow
-        git checkout prod
+        git checkout master
         git pull
-        git merge --no-ff master -m "Auto push"
+        git merge --no-ff fetch -m "Auto push"
         git push
