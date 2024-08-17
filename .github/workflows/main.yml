@@ -18,7 +18,7 @@ jobs:
         run: |
           for changed_file in ${{ steps.abc.outputs.modified }}; do
             if [ ${changed_file} == src/mk_elib/__about__.py ]; then
-              test=true
+              run: echo "test=hello" >> "$GITHUB_OUTPUT"
             fi
           done        
   job2:
