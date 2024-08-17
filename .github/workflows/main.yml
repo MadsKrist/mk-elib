@@ -15,9 +15,11 @@ jobs:
       - name: Printing
         run: |
           echo "Modified:"
+
+          
           for changed_file in ${{ steps.abc.outputs.modified }}; do
-            if: ${changed_file} == src/mk_elib/__about__.py
-              echo "test"
-              
-            echo "Do something with this ${changed_file}."
+            echo ${changed_file}
+            if [[ ${changed_file} == src/mk_elib/__about__.py]]; then
+              echo "found"
+            fi
           done
