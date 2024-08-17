@@ -19,7 +19,7 @@ jobs:
           
           for changed_file in ${{ steps.abc.outputs.modified }}; do
             echo ${changed_file}
-            if [[ ${changed_file} == src/mk_elib/__about__.py]]; then
+            if [ ${changed_file} == src/mk_elib/__about__.py ]; then
               echo "found"
             fi
           done
