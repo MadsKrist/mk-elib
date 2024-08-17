@@ -21,6 +21,7 @@ jobs:
         git config --local user.name "Github Actions"
      - name: Push master to prod
        run: |
+        git checkout master
+        git pull
         git checkout -B prod
-        git fetch --unshallow
         git merge --no-ff master -m "auto push"
