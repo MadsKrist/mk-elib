@@ -38,14 +38,19 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+        
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ github.ref == 'master' }}
 
-    - name: Set Git Config
-      run: |
+    steps:
+     - name: Set Git Config
+       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "Github Actions"
-
-    - name: Push master to prod
-      run: |
+     - name: Push master to prod
+       run: |
         git fetch --unshallow
         git checkout master
         git pull
