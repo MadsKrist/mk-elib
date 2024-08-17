@@ -15,7 +15,7 @@ jobs:
       - name: Printing
         run: |
           echo "Modified:"
-          for changed_file in ${{ steps.files.outputs.modified }}; do
+          for changed_file in ${{ steps.abc.outputs.modified }}; do
             if: ${changed_file} == src/mk_elib/__about__.py
               echo "test"
               
