@@ -51,4 +51,4 @@ jobs:
         git config --local user.name "Github Actions"
      - name: Push master to prod
        run: |
-        git branch
+        git checkout -B prod
