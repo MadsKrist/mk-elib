@@ -51,7 +51,4 @@ jobs:
         git config --local user.name "Github Actions"
      - name: Push master to prod
        run: |
-        echo git branch
-        git fetch --unshallow
-        git checkout master
-
+        git branch
