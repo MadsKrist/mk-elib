@@ -16,9 +16,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Printing
         run: |
+
+          echo "test=hello" >> "$GITHUB_OUTPUT"
           for changed_file in ${{ steps.abc.outputs.modified }}; do
             if [ ${changed_file} == src/mk_elib/__about__.py ]; then
-              run: echo "test=hello" >> "$GITHUB_OUTPUT"
+              
             fi
           done        
   job2:
