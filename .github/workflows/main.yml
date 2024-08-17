@@ -30,4 +30,4 @@ jobs:
     steps:
       - name: test
         run: |
-          echo ${{ steps.abc.outputs:versionChanged }}
+          echo ${{ steps.abc.outputs.versionChanged }}
