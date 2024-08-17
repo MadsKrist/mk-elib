@@ -15,7 +15,8 @@ jobs:
           format: space-delimited
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Printing
-        run:
+        run: |
+          pass
          
   job2:
     runs-on: ubuntu-latest
