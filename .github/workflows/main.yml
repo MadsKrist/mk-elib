@@ -18,11 +18,11 @@ jobs:
         run: |
 
           echo "test=hello" >> "$GITHUB_OUTPUT"
-          for changed_file in ${{ steps.abc.outputs.modified }}; do
-            if [ ${changed_file} == src/mk_elib/__about__.py ]; then
+          #for changed_file in ${{ steps.abc.outputs.modified }}; do
+           # if [ ${changed_file} == src/mk_elib/__about__.py ]; then
               
-            fi
-          done        
+           # fi
+          #done        
   job2:
     runs-on: ubuntu-latest
     needs: [job1]
