@@ -21,3 +21,5 @@ jobs:
       with:
         type: now
         target_branch: prod
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
