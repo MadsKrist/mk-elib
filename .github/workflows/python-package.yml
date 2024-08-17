@@ -38,3 +38,25 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+        
+  merge-master-to-prod:
+    if: github.event.pull_request.merged == true
+    timeout-minutes: 2
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set Git Config
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "Github Actions"
+
+    - name: Push master to prod
+      run: |
+        git fetch --unshallow
+        git checkout prod
+        git pull
+        git merge --no-ff master -m "Auto push"
+        git push
+        
