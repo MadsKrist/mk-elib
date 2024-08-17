@@ -17,5 +17,5 @@ jobs:
     steps:
       - env:
           OUTPUT1: ${{needs.job1.outputs.output1}}
-        if: ${{ $OUTPUT1 == true }}
+        if: ${{ OUTPUT1 == true }}
         run: echo "$OUTPUT1"
