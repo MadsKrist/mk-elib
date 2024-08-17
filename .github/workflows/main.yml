@@ -32,4 +32,4 @@ jobs:
         run: hatch build
       - name: Publish on PyPI
         if: github.ref == 'refs/heads/main'
-        run: hatch publish
+        run: hatch publish -u __token__ -a ${{ secrets.PYPITOKEN }}
