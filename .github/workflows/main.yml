@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     outputs:
-      versionChanged: ${{ steps.abc.outputs.versionChanged }}
+      output1: ${{ steps.step1.outputs.test }}
     steps:
       - uses: actions/checkout@v2.1.0
       - uses: jitterbit/get-changed-files@v1
