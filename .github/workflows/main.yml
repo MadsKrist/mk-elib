@@ -5,6 +5,8 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      versionChanged: ${{ steps.abc.outputs:versionChanged }}
     steps:
       - uses: actions/checkout@v2.1.0
       - uses: jitterbit/get-changed-files@v1
@@ -16,10 +18,16 @@ jobs:
         run: |
           echo "Modified:"
 
-          
           for changed_file in ${{ steps.abc.outputs.modified }}; do
             echo ${changed_file}
             if [ ${changed_file} == src/mk_elib/__about__.py ]; then
               echo "found"
             fi
           done
+  print:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - name: test
+        run: |
+          echo ${{ steps.abc.outputs:versionChanged }}
